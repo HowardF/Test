@@ -9,7 +9,7 @@ class AdminController extends BaseController {
 	public function getName()
 	{
 		 $username = Input::get('username'); 
-		$account = Account::where('username','LIKE', $username.'%')
+		$account = Count1234::where('username','LIKE', $username.'%')
 		->groupBy('username')
 		->orderBy('username', 'ASC')->get();
 		
@@ -31,7 +31,7 @@ class AdminController extends BaseController {
 	{
 		
 		$username = Input::get('username');
-		$user = User::with('account')
+		$user = Guess1234::with('account')
 		->where('username','LIKE', $username.'%')
 		->orderBy('account_id', 'ASC')
 		->orderBy('username', 'ASC')->get();
@@ -40,7 +40,7 @@ class AdminController extends BaseController {
 	
 	public function getAccount($id)
 	{
-		$account= Account::where('id','=',$id)->with('user')->first();
+		$account= Whatever1234::where('id','=',$id)->with('user')->first();
 		//$users = User::where('account_id','=',$id)->get();
 		if (isset($account->access) && $account->access !=''){
 			$access = str_split($account->access);
